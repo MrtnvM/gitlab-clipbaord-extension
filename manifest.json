@@ -1,12 +1,22 @@
 {
+  "manifest_version": 3,
   "name": "Gitlab Clipboard Extension",
-  "version": "1.2.6",
-  "description": "Copy the issues and merge requests links with well-formatted description in seconds!",
-  "permissions": [
-    "http://gitlab.com/*",
-    "https://gitlab.com/*",
-    "clipboardWrite"
-  ],
+  "version": "1.2.7",
+
+  "action": {
+    "default_icon": {
+      "16": "images/logo16.png",
+      "24": "images/logo24.png",
+      "32": "images/logo32.png"
+    },
+    "default_title": "Gitlab Clipboard Extension"
+  },
+
+  "description": "Copy well-formatted Gitlab links",
+
+  "permissions": ["clipboardWrite"],
+  "host_permissions": ["http://gitlab.com/*", "https://gitlab.com/*"],
+
   "content_scripts": [
     {
       "matches": ["http://gitlab.com/*", "https://gitlab.com/*"],
@@ -19,6 +29,14 @@
     "48": "images/logo48.png",
     "128": "images/logo128.png"
   },
-  "web_accessible_resources": ["images/copy.svg", "images/copied.svg"],
-  "manifest_version": 2
+  "web_accessible_resources": [
+    {
+      "resources": ["images/copy.svg", "images/copied.svg"],
+      "matches": ["http://gitlab.com/*", "https://gitlab.com/*"]
+    },
+    {
+      "resources": ["content.js"],
+      "matches": ["http://gitlab.com/*", "https://gitlab.com/*"]
+    }
+  ]
 }
