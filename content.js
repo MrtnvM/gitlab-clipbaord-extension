@@ -258,7 +258,7 @@ function observeChangesInBoard() {
 function addCopyButtonToTickets(board) {
   addCopyButtonToItems({
     itemSelector: '.board-card',
-    copyBtnContainerSelector: '.gl-display-flex',
+    copyBtnContainerSelector: '.gl-flex',
     itemsContainer: board,
     getContentCallback: (ticket) => () => getTicketDescription(ticket),
   });
@@ -301,9 +301,9 @@ function setupTicketDetails() {
 
 function addCopyButtonToTicketDetails(ticketTitleContainer) {
   const item = ticketTitleContainer;
-  const copyBtnContainerSelector = '.title-container';
+  const copyBtnContainerSelector = '.detail-page-header-actions';
   const getContentCallback = getTicketDetailsDescription;
-  const beforeItem = document.querySelector('.btn-edit');
+  const beforeItem = document.querySelector('.js-issuable-edit');
 
   const container = item.querySelector(copyBtnContainerSelector);
 
