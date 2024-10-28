@@ -365,7 +365,7 @@ function setupMergeRequestDetails() {
     return;
   }
 
-  const ticketTitleContainerSelector = '.detail-page-description';
+  const ticketTitleContainerSelector = '.detail-page-header-body';
   const ticketTitleContainer = document.querySelector(ticketTitleContainerSelector);
 
   if (!ticketTitleContainer) {
@@ -383,17 +383,13 @@ function addCopyButtonToMergeRequestDetails(ticketTitleContainer) {
   }
 
   const copyBtn = createLargeCopyButton(() => getMergeRequestDetailsDescription(item));
-  copyBtn.style.marginRight = '0px';
   copyBtn.style.cssFloat = 'right';
-
-  const title = item.querySelector('.title');
-  title.style.paddingRight = '54px';
 
   item.prepend(copyBtn);
 }
 
 function getMergeRequestDetailsDescription(ticketTitleContainer) {
-  const ticketTitleSelector = 'h2.title';
+  const ticketTitleSelector = 'h1.title';
   const titleTag = ticketTitleContainer.querySelector(ticketTitleSelector);
 
   let title = titleTag.innerHTML;
